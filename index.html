@@ -11,12 +11,82 @@
 </head>
 
 <body>
-    <h1>Hello World!</h1>
+    <!-- Header -->
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <!-- Main -->
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <h3>Search for a city:</h3>
+                <input id="user-input" type="text" placeholder="Search...">
+                <button id="search-btn">&#128269</button>
+                <br><br>
+                <div id="previous-search"></div>
+            </div>
+            <!-- Current City Date and Weather for Today -->
+            <div class="col-9">
+                <div id="current-weather" class="card">
+                    <div class="card-body">
+                        <p id="current-date">Date</p>
+                        <p id="current-temp">Temp</p>
+                        <p id="current-humidity">Humidity</p>
+                        <p id="current-wspeed">Wind Speed</p>
+                        <p id="current-uv">UV Index</p>
+                    </div>
+                </div>
+                <h2>5 Day Forecast:</h2>
+                <div class="container">
+                    <div id="weekly-forecast" class="row">
+                        <!-- Current City Date and Weather for 5 days -->
+                        <div class="card" style="width:20%;height: 25%;">
+                            <div class="card-body">
+                                <div id="weekly1">
+                                    Day 1
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 20%;height: 25%;">
+                            <div class="card-body">
+                                <div id="weekly2">
+                                    Day 2
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 20%;height: 25%;">
+                            <div class="card-body">
+                                <div id="weekly3">
+                                    Day 3
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 20%;height: 25%;">
+                            <div class="card-body">
+                                <div id="weekly4">
+                                    Day 4
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 20%;height: 25%;">
+                            <div class="card-body">
+                                <div id="weekly5">
+                                    Day 5
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <br>
     <!-- JS & JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 
