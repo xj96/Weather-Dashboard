@@ -19,24 +19,30 @@ const apiKey = "c972785c6cce92cd4ef6abedf6d41f9a";
 function oneDay(city) {
     console.log(city)
     var urlOneDay = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
-    console.log(urlOneDay)
+
 
     $.ajax({
         url: urlOneDay,
         method: "GET"
     }).then(function (response) {
+        console.log(urlOneDay)
+        console.log(response)
 
-        // temp
+        // Get user input about city
+        localStorage.setItem(city.city)
+        // Store user input in local storage
+
+
         const temp = response.main.temp;
-        console.log(temp)
+        // console.log(temp)
 
-        // humidity
+        // // humidity
         const humid = response.main.humidity;
-        console.log(humid)
+        // console.log(humid)
 
-        // wind speed
+        // // wind speed
         const windSpeed = response.wind.speed;
-        console.log(windSpeed)
+        // console.log(windSpeed)
 
         // icon
 
@@ -52,8 +58,8 @@ function oneDay(city) {
             console.log(urlUV);
             console.log(uvData);
 
-            var uvVal = uvData.value;
-            console.log(uvVal)
+            // var uvVal = uvData.value;
+            // console.log(uvVal)
         })
     })
 }
