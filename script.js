@@ -15,6 +15,26 @@
 // Weather API
 const apiKey = "c972785c6cce92cd4ef6abedf6d41f9a";
 
+// Reference variable for user input
+$("#search-btn").on('click', function () {
+    // console.log('hello')
+    // declares a variable newDiv
+    var newDiv = $("<div>");
+    // declares a variable named input and sets it as the value of the user input
+    var input = $("#user-input").val();
+    console.log(input)
+    // if there is something in the input field add it to the local storage and display in the newdiv
+    if (input) {
+        localStorage.setItem(input, "");
+        $("#previous-search").append(newDiv)
+        newDiv.prepend(input)
+    }
+
+})
+
+// Button Click Function
+
+
 // 1 Day Forecast
 function oneDay(city) {
     console.log(city)
@@ -27,11 +47,6 @@ function oneDay(city) {
     }).then(function (response) {
         console.log(urlOneDay)
         console.log(response)
-
-        // Get user input about city
-        localStorage.setItem(city.city)
-        // Store user input in local storage
-
 
         const temp = response.main.temp;
         // console.log(temp)
