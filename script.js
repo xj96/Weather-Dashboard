@@ -15,6 +15,7 @@
 // Weather API
 const apiKey = "c972785c6cce92cd4ef6abedf6d41f9a";
 
+// Button Click Function
 // Reference variable for user input
 $("#search-btn").on('click', function () {
     // console.log('hello')
@@ -32,7 +33,7 @@ $("#search-btn").on('click', function () {
 
 })
 
-// Button Click Function
+
 
 
 // 1 Day Forecast
