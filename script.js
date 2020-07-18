@@ -30,9 +30,42 @@ $("#search-btn").on("click", function searchButton() {
         $("#previous-search").append(newDiv)
         newDiv.prepend(input)
     }
+
+
     oneDay(input)
     fiveDay(input)
+    clear()
+
 })
+
+function clear() {
+    // Clear Current Text
+    $("#current-date").text("Date: ")
+    $("#current-temp").text("Temp: ")
+    $("#current-humidity").text("Humidity: ")
+    $("#current-wspeed").text("Wind Speed: ")
+    $("#current-uv").text("UV Index: ")
+
+    // Clear Current Icon
+    $("#current-icon").children().attr("src", "")
+
+    // Clear Five Day Forecast Text
+    $("#d1").text("")
+    $("#d1-temp").text("")
+    $("#d1-humidity").text("")
+    $("#d2").text("")
+    $("#d2-temp").text("")
+    $("#d2-humidity").text("")
+    $("#d3").text("")
+    $("#d3-temp").text("")
+    $("#d3-humidity").text("")
+    $("#d4").text("")
+    $("#d4-temp").text("")
+    $("#d4-humidity").text("")
+    $("#d5").text("")
+    $("#d5-temp").text("")
+    $("#d5-humidity").text("")
+}
 
 // 1 Day day5
 function oneDay(city) {
@@ -70,14 +103,6 @@ function oneDay(city) {
         var currentUrlIcon = "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png"
         var currentIconImg = $("<img>").attr('src', currentUrlIcon)
         $("#current-icon").append(currentIconImg)
-
-        // Day One Icon
-        // var iconCode = day5.list[0].weather[0].icon
-        // console.log('This is the icon code: ', iconCode)
-        // var urlIcon = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
-        // var iconImg = $("<img>").attr('src', urlIcon)
-        // $("#d1").append(iconImg)
-
 
         // UV
         var lat = response.coord.lat;
@@ -121,6 +146,16 @@ function fiveDay(city) {
         var iconImg = $("<img>").attr('src', urlIcon)
         $("#d1").append(iconImg)
 
+        // Day One Temp
+        const dayOneTemp = day5.list[0].main.temp
+        console.log(dayOneTemp);
+        $("#d1-temp").append('Temp: ', dayOneTemp + " &#8457;")
+
+        // Day One Humidity
+        const dayOneHumid = day5.list[0].main.humidity
+        console.log(dayOneHumid);
+        $("#d1-humidity").append('Humidity: ', dayOneHumid + "%")
+
         // Day Two
         // set variable for the date and display it in moment.js format
         var dayTwo = moment(day5.list[8].dt_txt).format("MM/DD")
@@ -133,6 +168,16 @@ function fiveDay(city) {
         var urlIcon2 = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
         var iconImg2 = $("<img>").attr('src', urlIcon2)
         $("#d2").append(iconImg2)
+
+        // Day Two Temp
+        const dayTwoTemp = day5.list[8].main.temp
+        console.log(dayTwoTemp);
+        $("#d2-temp").append('Temp: ', dayTwoTemp + " &#8457;")
+
+        // Day Two Humidity
+        const dayTwoHumid = day5.list[8].main.humidity
+        console.log(dayTwoHumid);
+        $("#d2-humidity").append('Humidity: ', dayTwoHumid + "%")
 
         // Day Three
         // set variable for the date and display it in moment.js format
@@ -147,6 +192,16 @@ function fiveDay(city) {
         var iconImg3 = $("<img>").attr('src', urlIcon3)
         $("#d3").append(iconImg3)
 
+        // Day Three Temp
+        const dayThreeTemp = day5.list[16].main.temp
+        console.log(dayThreeTemp);
+        $("#d3-temp").append('Temp: ', dayThreeTemp + " &#8457;")
+
+        // Day Three Humidity
+        const dayThreeHumid = day5.list[16].main.humidity
+        console.log(dayThreeHumid);
+        $("#d3-humidity").append('Humidity: ', dayThreeHumid + "%")
+
         // Day Four
         // set variable for the date and display it in moment.js format
         var dayFour = moment(day5.list[24].dt_txt).format("MM/DD")
@@ -160,6 +215,16 @@ function fiveDay(city) {
         var iconImg4 = $("<img>").attr('src', urlIcon4)
         $("#d4").append(iconImg4)
 
+        // Day Four Temp
+        const dayFourTemp = day5.list[24].main.temp
+        console.log(dayFourTemp);
+        $("#d4-temp").append('Temp: ', dayFourTemp + " &#8457;")
+
+        // Day Four Humidity
+        const dayFourHumid = day5.list[24].main.humidity
+        console.log(dayFourHumid);
+        $("#d4-humidity").append('Humidity: ', dayFourHumid + "%")
+
         // Day Five
         // set variable for the date and display it in moment.js format
         var dayFive = moment(day5.list[32].dt_txt).format("MM/DD")
@@ -172,5 +237,15 @@ function fiveDay(city) {
         var urlIcon5 = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
         var iconImg5 = $("<img>").attr('src', urlIcon5)
         $("#d5").append(iconImg5)
+
+        // Day Five Temp
+        const dayFiveTemp = day5.list[32].main.temp
+        console.log(dayFiveTemp);
+        $("#d5-temp").append('Temp: ', dayFiveTemp + " &#8457;")
+
+        // Day Five Humidity
+        const dayFiveHumid = day5.list[32].main.humidity
+        console.log(dayFiveHumid);
+        $("#d5-humidity").append('Humidity: ', dayFiveHumid + "%")
     })
 }
